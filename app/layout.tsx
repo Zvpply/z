@@ -15,6 +15,11 @@ export const metadata: Metadata = {
     template: '%s | Zvpply',
   },
   description: 'I solve brand and product design problems, and I enable you to reach your audience effectively.',
+  icons: {
+    icon: '/icon.jpg',
+    shortcut: '/icon.jpg',
+    apple: '/icon.jpg',
+  },
   openGraph: {
     title: 'Zvpply — Designing products for AI & Web3',
     description: 'I solve brand and product design problems, and I enable you to reach your audience effectively.',
