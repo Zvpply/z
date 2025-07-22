@@ -5,6 +5,7 @@ import { Navbar } from './components/nav'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import Footer from './components/footer'
+import { DarkModeToggle } from './components/dark-mode-toggle'
 import { baseUrl } from './sitemap'
 import { faktumRegular, faktumMedium, faktumBold, faktumLight, faktumSemiBold, faktumExtraBold } from './fonts'
 
@@ -63,6 +64,7 @@ export default function RootLayout({
       )}
     >
       <body className="antialiased font-faktum">
+        <DarkModeToggle />
         <main className="min-h-screen py-12 px-4 md:px-8">
           <Navbar />
           <div className="max-w-4xl mx-auto">

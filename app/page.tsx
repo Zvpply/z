@@ -8,7 +8,7 @@ export default function Page() {
           zvpply
         </h1>
         
-        <h2 className="text-xl font-faktum-light text-gray-600 dark:text-gray-400 mb-2">
+        <h2 className="text-lg md:text-xl font-faktum-light text-gray-600 dark:text-gray-400 mb-2">
           designing products for ai & web3
         </h2>
         
