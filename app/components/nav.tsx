@@ -2,15 +2,25 @@ import Link from 'next/link'
 
 export function Navbar() {
   return (
-    <aside className="-ml-[8px] mb-16 tracking-tight">
-      <div className="lg:sticky lg:top-20">
-        <nav
-          className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
-          id="nav"
+    <nav className="flex items-center justify-between py-6 mb-8">
+      <Link href="/" className="text-xl font-faktum-medium">
+        zvpply
+      </Link>
+      
+      <div className="flex items-center gap-6">
+        <Link 
+          href="/blog" 
+          className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
         >
-          {/* Navigation removed for clean, minimal design */}
-        </nav>
+          Blog
+        </Link>
+        <Link 
+          href="/case-studies" 
+          className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+        >
+          Case Studies
+        </Link>
       </div>
-    </aside>
+    </nav>
   )
 }
