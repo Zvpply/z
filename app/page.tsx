@@ -1,4 +1,3 @@
-import { BlogPosts } from 'app/components/posts'
 import { LastFmScrobbler } from 'app/components/lastfm'
 
 export default function Page() {
@@ -21,12 +20,6 @@ export default function Page() {
           <LastFmScrobbler />
         </div>
       </header>
-
-      {/*<section className="mb-12">
-        <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 font-faktum-regular">
-          I solve brand and product design problems, and I enable you to reach your audience effectively.
-        </p>
-      </section>*/}
 
       <section className="mb-12">
         <h2 className="text-2xl font-faktum-medium mb-6">About</h2>
@@ -139,13 +132,6 @@ export default function Page() {
           <p><strong className="font-faktum-regular">X / Twitter:</strong> <a href="https://twitter.com/zvpply" target="_blank" rel="noopener noreferrer">@zvpply</a></p>
         </div>
       </section>
-
-      {/* Blog section - commented out for now
-      <section className="mb-12">
-        <h2 className="text-2xl font-faktum-medium mb-6">Blog</h2>
-        <BlogPosts />
-      </section>
-      */}
     </>
   )
 }
