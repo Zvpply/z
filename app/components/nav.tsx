@@ -8,18 +8,7 @@ export function Navbar() {
       </Link>
       
       <div className="flex items-center gap-6">
-        <Link 
-          href="/blog" 
-          className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
-        >
-          Blog
-        </Link>
-        <Link 
-          href="/case-studies" 
-          className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
-        >
-          Case Studies
-        </Link>
+        {/* Blog and Case Studies links hidden for now */}
       </div>
     </nav>
   )
