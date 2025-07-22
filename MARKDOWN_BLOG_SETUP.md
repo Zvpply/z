@@ -10,6 +10,7 @@ The system allows you to:
 - Auto-generate pages from markdown files
 - Include metadata (title, date, tags, etc.)
 - Support images and rich content
+- Share content easily with built-in sharing buttons
 
 ## File Structure
 
@@ -21,8 +22,11 @@ app/
 ├── lib/
 │   └── mdx.ts         # Utilities for handling markdown
 ├── components/
-│   └── mdx.tsx        # MDX rendering components
-└── blog/              # Blog pages (when enabled)
+│   ├── mdx.tsx        # MDX rendering components
+│   └── share-buttons.tsx # Sharing functionality
+├── feed/
+│   └── route.ts       # RSS feed generation
+└── blog/              # Blog pages
     ├── page.tsx       # Blog listing
     └── [slug]/
         └── page.tsx   # Individual blog post
@@ -30,18 +34,12 @@ app/
 
 ## How to Enable
 
-1. **Rename directories** to enable the blog:
-   ```bash
-   mv app/blog_enabled app/blog
-   mv app/case-studies_enabled app/case-studies
-   ```
-
-2. **Install dependencies** (already done):
+1. **Install dependencies** (already done):
    ```bash
    pnpm add next-mdx-remote gray-matter date-fns
    ```
 
-3. **Create content** by adding .mdx files to the content directories.
+2. **Create content** by adding .mdx files to the content directories.
 
 ## Writing Content
 
@@ -135,6 +133,9 @@ All .mdx files support frontmatter (the section between `---`):
 - Responsive design
 - SEO-friendly URLs
 - Static site generation
+- **Sharing buttons** on every post
+- **RSS feed** for blog posts
+- **Social media sharing** (Twitter, LinkedIn)
 
 ### 🔧 Technical Details
 - Uses `next-mdx-remote` for rendering
@@ -142,6 +143,20 @@ All .mdx files support frontmatter (the section between `---`):
 - `date-fns` for date formatting
 - Custom Tailwind styling
 - TypeScript support
+
+## Sharing Features
+
+### Share Buttons Available:
+- **Copy Markdown** - Copy formatted markdown
+- **Copy Text** - Copy plain text version
+- **Twitter** - Direct share to Twitter
+- **LinkedIn** - Direct share to LinkedIn
+- **Native Share** - Device's native sharing (mobile)
+
+### RSS Feed:
+- Available at `/feed`
+- Auto-updates with new posts
+- Perfect for readers and other platforms
 
 ## Navigation
 
@@ -178,14 +193,13 @@ If you encounter React version conflicts:
 
 ## Next Steps
 
-1. Enable the blog by renaming directories
-2. Add your first blog post
-3. Customize styling as needed
-4. Add more features like:
+1. Add your first blog post
+2. Customize styling as needed
+3. Add more features like:
    - Search functionality
    - Tag filtering
-   - RSS feeds
    - Comments system
+   - Analytics integration
 
 ## Example Content
 
@@ -193,4 +207,8 @@ I've created example files:
 - `app/content/blog/hello-world.mdx` - Sample blog post
 - `app/content/case-studies/ai-layer-labs.mdx` - Sample case study
 
-These demonstrate the full range of markdown features and styling. 
+These demonstrate the full range of markdown features and styling.
+
+## Security Note
+
+This setup is designed for public repositories and doesn't include any API keys or credentials. All sharing is done through standard web APIs and doesn't require any authentication. 

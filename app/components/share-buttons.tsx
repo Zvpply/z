@@ -30,9 +30,9 @@ export function ShareButtons({ title, url, description, tags }: ShareButtonsProp
     setTimeout(() => setCopied(false), 2000)
   }
 
-  const handleCopySubstack = async () => {
-    const substackText = `${title}\n\n${description || ''}\n\nRead the full post: ${url}`
-    await navigator.clipboard.writeText(substackText)
+  const handleCopyText = async () => {
+    const text = `${title}\n\n${description || ''}\n\nRead the full post: ${url}`
+    await navigator.clipboard.writeText(text)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
@@ -70,10 +70,10 @@ export function ShareButtons({ title, url, description, tags }: ShareButtonsProp
       </button>
       
       <button
-        onClick={handleCopySubstack}
-        className="px-3 py-1 text-sm bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300 rounded hover:bg-orange-200 dark:hover:bg-orange-800 transition-colors"
+        onClick={handleCopyText}
+        className="px-3 py-1 text-sm bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors"
       >
-        Copy for Substack
+        Copy Text
       </button>
       
       <button
