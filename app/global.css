@@ -17,16 +17,11 @@
   --sh-entity: #e25a1c;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --sh-class: #4c97f8;
-    --sh-identifier: white;
-    --sh-keyword: #f47067;
-    --sh-string: #0fa295;
-  }
-  html {
-    color-scheme: dark;
-  }
+.dark {
+  --sh-class: #4c97f8;
+  --sh-identifier: white;
+  --sh-keyword: #f47067;
+  --sh-string: #0fa295;
 }
 
 html {
@@ -43,11 +38,9 @@ body {
   font-family: var(--font-faktum-regular), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    color: #e5e5e5;
-    background-color: #0a0a0a;
-  }
+.dark body {
+  color: #e5e5e5;
+  background-color: #0a0a0a;
 }
 
 /* Faktum font utility classes */
@@ -98,69 +91,60 @@ body {
   content: '#';
 }
 
-.prose *:hover > .anchor {
-  @apply visible;
-}
-
 .prose pre {
-  @apply bg-neutral-50 dark:bg-neutral-900 rounded-lg overflow-x-auto border border-neutral-200 dark:border-neutral-900 py-2 px-3 text-sm;
+  @apply bg-neutral-900 dark:bg-neutral-900;
 }
 
 .prose code {
-  @apply px-1 py-0.5 rounded-lg;
+  @apply text-neutral-800 dark:text-neutral-200;
 }
 
 .prose pre code {
-  @apply p-0;
-  border: initial;
-  line-height: 1.5;
+  @apply text-neutral-800 dark:text-neutral-200;
 }
 
 .prose code span {
-  @apply font-medium;
+  @apply text-neutral-800 dark:text-neutral-200;
 }
 
 .prose img {
-  /* Don't apply styles to next/image */
-  @apply m-0;
+  @apply rounded-lg border border-neutral-200 dark:border-neutral-700;
 }
 
 .prose p {
-  @apply my-4 text-neutral-800 dark:text-neutral-200;
+  @apply text-neutral-800 dark:text-neutral-200;
 }
 
 .prose h1 {
-  @apply text-4xl font-medium tracking-tight mt-6 mb-2;
+  @apply text-neutral-900 dark:text-neutral-100;
 }
 
 .prose h2 {
-  @apply text-xl font-medium tracking-tight mt-6 mb-2;
+  @apply text-neutral-900 dark:text-neutral-100;
 }
 
 .prose h3 {
-  @apply text-xl font-medium tracking-tight mt-6 mb-2;
+  @apply text-neutral-900 dark:text-neutral-100;
 }
 
 .prose h4 {
-  @apply text-lg font-medium tracking-tight mt-6 mb-2;
+  @apply text-neutral-900 dark:text-neutral-100;
 }
 
 .prose strong {
-  @apply font-medium;
+  @apply text-neutral-900 dark:text-neutral-100;
 }
 
 .prose ul {
-  @apply list-disc pl-6;
+  @apply text-neutral-800 dark:text-neutral-200;
 }
 
 .prose ol {
-  @apply list-decimal pl-6;
+  @apply text-neutral-800 dark:text-neutral-200;
 }
 
 .prose > :first-child {
-  /* Override removing top margin, causing layout shift */
-  margin-top: 1.25em !important;
-  margin-bottom: 1.25em !important;
+  @apply text-neutral-800 dark:text-neutral-200;
 }
 
 pre::-webkit-scrollbar {
@@ -168,128 +152,95 @@ pre::-webkit-scrollbar {
 }
 
 pre {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* Remove Safari input shadow on mobile */
 input[type='text'],
-input[type='email'] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+input[type='email'],
+input[type='password'],
+input[type='number'],
+input[type='url'],
+input[type='date'],
+input[type='datetime-local'],
+input[type='month'],
+input[type='week'],
+input[type='time'],
+input[type='search'],
+input[type='tel'],
+select,
+select[multiple],
+textarea {
+  @apply bg-neutral-50 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100;
 }
 
 table {
-  display: block;
-  max-width: fit-content;
-  overflow-x: auto;
-  white-space: nowrap;
+  @apply border-neutral-200 dark:border-neutral-700;
 }
 
 .title {
-  text-wrap: balance;
+  @apply text-neutral-900 dark:text-neutral-100;
 }
 
-/* Custom styles for better typography with Faktum */
 h1, h2, h3, h4, h5, h6 {
+  @apply text-neutral-900 dark:text-neutral-100;
   font-weight: 500;
-  line-height: 1.2;
-  margin-bottom: 0.5em;
   font-family: var(--font-faktum-medium), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 h1 {
-  font-size: 2.5rem;
+  @apply text-neutral-900 dark:text-neutral-100;
   font-weight: 500;
-  letter-spacing: -0.025em;
   font-family: var(--font-faktum-medium), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 h2 {
-  font-size: 1.875rem;
+  @apply text-neutral-900 dark:text-neutral-100;
   font-weight: 500;
-  letter-spacing: -0.025em;
   font-family: var(--font-faktum-medium), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 h3 {
-  font-size: 1.5rem;
+  @apply text-neutral-900 dark:text-neutral-100;
   font-weight: 400;
   font-family: var(--font-faktum-regular), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 p {
-  margin-bottom: 1rem;
-  line-height: 1.7;
+  @apply text-neutral-800 dark:text-neutral-200;
   font-family: var(--font-faktum-regular), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 a {
-  color: #2563eb;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-  transition: color 0.2s ease;
+  @apply text-neutral-900 dark:text-neutral-100 underline decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em] transition-all;
 }
 
 a:hover {
-  color: #1d4ed8;
+  @apply text-neutral-700 dark:text-neutral-300 decoration-neutral-600 dark:decoration-neutral-400;
 }
 
-@media (prefers-color-scheme: dark) {
-  a {
-    color: #60a5fa;
-  }
-  
-  a:hover {
-    color: #93c5fd;
-  }
-}
-
-/* Section spacing */
 section {
-  margin-bottom: 3rem;
+  @apply text-neutral-800 dark:text-neutral-200;
 }
 
-/* Horizontal rule styling */
 hr {
-  border: none;
-  height: 1px;
-  background-color: #e5e7eb;
-  margin: 2rem 0;
+  @apply border-neutral-200 dark:border-neutral-700;
 }
 
-@media (prefers-color-scheme: dark) {
-  hr {
-    background-color: #374151;
-  }
-}
-
-/* List styling */
 ul, ol {
-  margin-bottom: 1rem;
-  padding-left: 1.5rem;
+  @apply text-neutral-800 dark:text-neutral-200;
 }
 
 li {
-  margin-bottom: 0.25rem;
-  line-height: 1.6;
+  @apply text-neutral-800 dark:text-neutral-200;
 }
 
-/* Grid for expertise section */
 .expertise-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  margin: 1rem 0;
+  @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2;
 }
 
 .expertise-item {
-  padding: 0.5rem;
-  border-radius: 0.375rem;
-  font-size: 0.875rem;
-  font-weight: 500;
+  @apply px-2 py-1 rounded-md text-sm font-medium text-neutral-700 dark:text-neutral-300;
   font-family: var(--font-faktum-medium), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   background: none !important;
   background-color: transparent !important;
