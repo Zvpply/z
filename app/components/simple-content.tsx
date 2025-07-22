@@ -18,7 +18,7 @@ export function SimpleContent({ content }: SimpleContentProps) {
           listItems = []
           inList = false
         }
-        return <h1 key={index} className="text-3xl font-faktum-medium mb-6 text-gray-900 dark:text-gray-100">{line.substring(2)}</h1>
+        return <h1 key={index} className="text-3xl font-faktum-medium mb-6 text-gray-900 dark:text-gray-100">{processInlineMarkdown(line.substring(2))}</h1>
       }
       if (line.startsWith('## ')) {
         if (inList && listItems.length > 0) {
@@ -26,7 +26,7 @@ export function SimpleContent({ content }: SimpleContentProps) {
           listItems = []
           inList = false
         }
-        return <h2 key={index} className="text-2xl font-faktum-medium mb-4 text-gray-900 dark:text-gray-100">{line.substring(3)}</h2>
+        return <h2 key={index} className="text-2xl font-faktum-medium mb-4 text-gray-900 dark:text-gray-100">{processInlineMarkdown(line.substring(3))}</h2>
       }
       if (line.startsWith('### ')) {
         if (inList && listItems.length > 0) {
@@ -34,7 +34,7 @@ export function SimpleContent({ content }: SimpleContentProps) {
           listItems = []
           inList = false
         }
-        return <h3 key={index} className="text-xl font-faktum-medium mb-3 text-gray-900 dark:text-gray-100">{line.substring(4)}</h3>
+        return <h3 key={index} className="text-xl font-faktum-medium mb-3 text-gray-900 dark:text-gray-100">{processInlineMarkdown(line.substring(4))}</h3>
       }
 
       // Handle bullet lists
@@ -89,13 +89,56 @@ export function SimpleContent({ content }: SimpleContentProps) {
     return elements
   }
 
-  // Process inline markdown like **bold** and *italic*
+  // Process inline markdown like **bold**, *italic*, and [links](url)
   const processInlineMarkdown = (text: string) => {
     const parts: (string | JSX.Element)[] = []
     let currentText = ''
     let i = 0
 
     while (i < text.length) {
+      // Handle links [text](url)
+      if (text[i] === '[') {
+        if (currentText) {
+          parts.push(currentText)
+          currentText = ''
+        }
+        i++
+        let linkText = ''
+        while (i < text.length && text[i] !== ']') {
+          linkText += text[i]
+          i++
+        }
+        if (i < text.length && text[i] === ']') {
+          i++
+          if (i < text.length && text[i] === '(') {
+            i++
+            let linkUrl = ''
+            while (i < text.length && text[i] !== ')') {
+              linkUrl += text[i]
+              i++
+            }
+            if (i < text.length && text[i] === ')') {
+              parts.push(
+                <a 
+                  key={`link-${i}`} 
+                  href={linkUrl} 
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {linkText}
+                </a>
+              )
+              i++
+              continue
+            }
+          }
+        }
+        // If link parsing failed, add back the original text
+        parts.push(`[${linkText}]`)
+        continue
+      }
+
       // Handle bold text **text**
       if (text.slice(i, i + 2) === '**') {
         if (currentText) {
