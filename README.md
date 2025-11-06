@@ -1,22 +1,15 @@
-# Zach McNair
+# Zvpply Redirect
 
-Personal portfolio and professional site for Zach McNair.
+Simple redirect service that redirects `zvpply.com` to `zachmcnair.com`.
 
-## Features
+## How it works
 
-- Modern, clean design with Faktum font family
-- Last.fm scrobbler integration
-- Responsive layout
-- Dark mode support
-- Optimized for SEO
+Uses Next.js middleware to detect requests to `zvpply.com` or `www.zvpply.com` and permanently redirects (301) them to the same path on `zachmcnair.com`.
 
 ## Tech Stack
 
 - Next.js 15
 - TypeScript
-- Tailwind CSS
-- Faktum font family
-- Vercel Analytics
 
 ## Development
 
@@ -26,4 +19,4 @@ npm run dev
 
 ## Deployment
 
-Deployed on Vercel at [zachmcnair.com](https://zachmcnair.com)
+Deployed on Vercel. Both domains (`zvpply.com` and `zachmcnair.com`) should be configured in your Vercel project settings.
