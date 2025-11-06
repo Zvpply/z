@@ -1,4 +1,4 @@
-# Zvpply
+# Zach McNair
 
 Personal portfolio and professional site for Zach McNair.
 
@@ -26,4 +26,4 @@ npm run dev
 
 ## Deployment
 
-Deployed on Vercel at [zvpply.com](https://zvpply.com)
+Deployed on Vercel at [zachmcnair.com](https://zachmcnair.com)
